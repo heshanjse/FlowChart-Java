@@ -1,1 +1,13 @@
 GUI Application will be for creating, saving, and sharing flow chart for uses such as a visual representation of computer algorithm.
+
+Requirements:
+Sharing:
+"Admin" editor.
+Client read only.
+
+Delete node without breaking layout
+Deal with layering
+Add text to node
+Draw various flow node shapes
+Printable
+Saving flow chart
