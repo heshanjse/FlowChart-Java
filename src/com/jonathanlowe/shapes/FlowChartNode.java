@@ -12,9 +12,9 @@ import java.awt.event.MouseMotionListener;
 import javax.swing.JPanel;
 
 public class FlowChartNode extends JPanel implements MouseListener, MouseMotionListener{
-	private Point pt = new Point();
-	private Boolean isClickInShape;
-	private Polygon poly;
+	protected Point pt = new Point();
+	protected Boolean isClickInShape;
+	protected Polygon poly;
 
 	public FlowChartNode(){
 		setBounds(0, 0, 250, 100);
@@ -32,21 +32,20 @@ public class FlowChartNode extends JPanel implements MouseListener, MouseMotionL
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		int xPoly[] = {0,50,250,200};
-		int yPoly[] = {100,0,0,100};
+		int xPoly[] = {0,0,100,100};
+		int yPoly[] = {0,100,100,0};
 		poly = new Polygon(xPoly, yPoly, xPoly.length);
-		g.setColor(Color.RED);
-		
-		g.fillPolygon(poly);
-		
-		
+		g.setColor(Color.RED);		
+		g.fillPolygon(poly);		
 	}
+	
 	
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		if(isClickInShape){
 			setLocation((e.getComponent().getX() - pt.x) + e.getPoint().x, (e.getComponent().getY() - pt.y)+ e.getPoint().y);
 			System.out.println(pt.x);
+			repaint();
 		}
 	}
 
@@ -66,6 +65,7 @@ public class FlowChartNode extends JPanel implements MouseListener, MouseMotionL
 		pt = e.getPoint();
 		isClickInShape = poly.contains(pt);
 		System.out.println(pt.x);
+		System.out.println("This works");
 		// TODO Auto-generated method stub
 		
 	}

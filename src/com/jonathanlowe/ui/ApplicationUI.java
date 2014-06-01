@@ -17,7 +17,8 @@ import java.awt.Insets;
 
 import javax.swing.SwingConstants;
 
-import com.jonathanlowe.shapes.FlowChartNode;
+
+import com.jonathanlowe.shapes.*;
 
 public class ApplicationUI extends JFrame implements ActionListener{
 
@@ -86,12 +87,15 @@ public class ApplicationUI extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand() == "Process Node"){
-			node = new FlowChartNode();
+			node = new ProcessNode();
 			contentPane.add(node);
 			contentPane.validate();
 			contentPane.repaint();
 		} else if(e.getActionCommand() == "I/O Node"){
-			contentPane.setBackground(Color.GREEN);
+			node = new IONode();
+			contentPane.add(node);
+			contentPane.validate();
+			contentPane.repaint();
 		} else if(e.getActionCommand() == "Decision Node"){
 			contentPane.setBackground(Color.BLUE);
 		}
